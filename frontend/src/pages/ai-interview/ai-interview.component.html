@@ -1,0 +1,167 @@
+<div class="interview-container">
+    <div class="interview-header">
+        <div class="header-text">
+            <h2>AI Interview Session</h2>
+        </div>
+    </div>
+    
+    <div class="question-section" [class.error]="callStatus === 'failed'">
+        <ng-container [ngSwitch]="callStatus">
+            <div *ngSwitchCase="'initiating'" class="status-message">
+                <div class="loading-spinner"></div>
+                <p>Initiating the call. Please wait...</p>
+            </div>
+            
+            <div *ngSwitchCase="'in_progress'" class="status-message">
+                <div class="loading-spinner"></div>
+                <p>Call in progress...</p>
+            </div>
+            
+            <div *ngSwitchCase="'completed'" class="status-message">
+                <ng-container [ngSwitch]="processingState">
+                    <div *ngSwitchCase="'downloading'" class="processing-state">
+                        <div class="loading-spinner"></div>
+                        <p>Downloading call recording...</p>
+                    </div>
+                    
+                    <div *ngSwitchCase="'transcribing'" class="processing-state">
+                        <div class="loading-spinner"></div>
+                        <p>Transcribing interview...</p>
+                    </div>
+                    
+                    <div *ngSwitchCase="'evaluating'" class="processing-state">
+                        <div class="loading-spinner"></div>
+                        <p>Evaluating interview responses...</p>
+                    </div>
+                    
+                    <div *ngSwitchCase="'done'" class="processing-state success">
+                        <p>✅ Interview processing complete!</p>
+                        
+                        <!-- Audio Player Section -->
+                        <div class="audio-section" *ngIf="audioUrl">
+                            <h3>Interview Recording</h3>
+                            <div class="audio-controls">
+                                <audio id="interviewAudio" controls>
+                                    <source [src]="audioUrl" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                                <button class="download-button" (click)="downloadRecording()">
+                                    <i class="fas fa-download"></i> Download Recording
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Message when no audio is available -->
+                        <div class="audio-section no-audio" *ngIf="!audioUrl">
+                            <h3>Interview Recording</h3>
+                            <p>Audio recording is not available for this interview.</p>
+                        </div>
+
+                        <!-- Transcription Section -->
+                        <div class="transcription-section" *ngIf="dataService.job">
+                            <h3>Interview Transcription</h3>
+                            <div class="transcription-content">
+                                {{ dataService.job }}
+                            </div>
+                        </div>
+
+                        <button class="view-results-button" (click)="viewResults()">View Results</button>
+                    </div>
+
+                    <div *ngSwitchCase="'error'" class="processing-state error">
+                        <p>{{ errorMessage }}</p>
+                        <button class="retry-button" (click)="retryProcessing()">Retry Processing</button>
+                    </div>
+                </ng-container>
+            </div>
+            
+            <div *ngSwitchCase="'failed'" class="status-message error">
+                <p>{{ errorMessage }}</p>
+                <button class="retry-button" (click)="monitorCallStatus()">Retry</button>
+            </div>
+        </ng-container>
+    </div>
+
+</div>
+
+<style>
+    /* Add these styles at the end of your existing styles */
+    .audio-section {
+        margin: 20px 0;
+        padding: 15px;
+        background: rgba(37, 99, 235, 0.1);
+        border-radius: 8px;
+    }
+
+    .audio-section h3 {
+        color: #2563eb;
+        margin-bottom: 10px;
+    }
+
+    audio {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .transcription-section {
+        margin: 20px 0;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+    }
+
+    .transcription-section h3 {
+        color: #2563eb;
+        margin-bottom: 10px;
+    }
+
+    .transcription-content {
+        white-space: pre-wrap;
+        line-height: 1.6;
+        max-height: 300px;
+        overflow-y: auto;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        font-family: monospace;
+    }
+
+    .view-results-button {
+        margin-top: 20px;
+    }
+
+    .no-audio {
+        text-align: center;
+        color: #666;
+        font-style: italic;
+    }
+
+    .audio-controls {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .download-button {
+        background-color: #2563eb;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        transition: background-color 0.2s;
+    }
+
+    .download-button:hover {
+        background-color: #1d4ed8;
+    }
+
+    .download-button i {
+        font-size: 16px;
+    }
+</style>

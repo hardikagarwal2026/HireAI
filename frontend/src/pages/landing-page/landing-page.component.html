@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="main-content">
+        <div class="resume-upload">
+            <div id="uploadProgress"></div>
+            <div class="upload-icon">📤</div>
+            <h2>Drag & drop your resume here</h2>
+            <p>or click to browse</p>
+            <input type="file" id="resumeUpload" style="display: none;" accept=".pdf,.doc,.docx"
+                (change)="onFileSelected($event)">
+            <button id="uploadButton" class="get-started-btn" style="margin-top: 20px;"
+                (click)="triggerFileInput()">Upload Resume</button>
+            <p id="fileInfo" style="margin-top: 10px; color: #6a11cb;">{{ fileName }}</p>
+
+        </div>
+
+
+        <div class="job-details">
+
+
+            <div class="form-group">
+                <label for="requiredSkills">Required Skills</label>
+                <!-- <input type="text" id="requiredSkills" class="form-control"
+                    placeholder="e.g. React, Node.js, TypeScript">
+                <span class="validation-error" id="requiredSkillsError">Please enter at least one skill</span> -->
+            </div>
+
+
+            <span class="validation-error">Job Role</span>
+
+            <input type="text" id="jobRole" class="form-control" [(ngModel)]="jobRole"
+                placeholder="e.g. Senior Frontend Developer" />
+            <br>
+            <br>
+
+
+            <span class="validation-error" id="experienceLevelError">Tech Stack</span>
+            <input type="text" id="requiredSkills" class="form-control" [(ngModel)]="requiredSkills"
+                placeholder="e.g. React, Node.js, TypeScript" />
+            <br>
+            <br>
+
+            <span class="validation-error" id="experienceLevelError">Please select an experience level</span>
+            <select id="experienceLevel" class="form-control" [(ngModel)]="experienceLevel">
+                <option value="">Select Experience Level</option>
+                <option value="entry">Entry Level (0-2 years)</option>
+                <option value="mid">Mid Level (2-5 years)</option>
+                <option value="senior">Senior Level (5+ years)</option>
+            </select>
+
+            <div style="display: flex; justify-content: center" (click)="redirectToAnalyzeResume()">
+                <button id="submitJobDetails" class="get-started-btn" style="width: 200px;">
+                    Submit Job Requirements
+                </button>
+            </div>
+
+            <div class="section-hint">
+                Double click to start section editing requirements...
+            </div>
+        </div>
+    </div>
+</div>

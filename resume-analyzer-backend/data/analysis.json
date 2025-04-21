@@ -1,0 +1,51 @@
+{
+  "summary": "Boggarapu Dhanush is a passionate Computer Science student specializing in IoT with a strong interest in full-stack development and functional programming.  His resume showcases experience in frontend and backend development, utilizing technologies like Angular, Node.js, Express.js, and Fabric.js. He has undertaken several internships, including roles focused on frontend development and backend development, and has completed projects demonstrating his proficiency in various technologies including AI and APIs. His academic background includes a B.Tech in Computer Science and Engineering from SRM Institute of Science and Technology.\n\nConclusion: Accepted",
+  "name": "Boggarapu Dhanush",
+  "phone_no": "+91 9108244780",
+  "education": "B.Tech in Computer Science and Engineering (Specialization in Internet of Things), SRM Institute of Science and Technology",
+  "experience": [
+    "Apprentice Trainee at TP Vision: Developed features using Fabric.js and Angular, conducted API analysis, and performed a feasibility study using Node.js.",
+    "Backend Development Intern at Keshav Soft: Implemented backend using Node.js and Express.js, handling GET, PUT, and POST requests.",
+    "Frontend Development Intern at Codsoft: Gained practical experience in web development using HTML, CSS, and JavaScript."
+  ],
+  "skills": [
+    "C",
+    "C++",
+    "Python",
+    "JavaScript",
+    "TypeScript",
+    "HTML",
+    "CSS",
+    "Angular",
+    "Node.js",
+    "Express.js",
+    "Fabric.js",
+    "Git",
+    "Postman",
+    "Figma",
+    "Twilio API",
+    "OpenCV",
+    "Bland API",
+    "MongoDB",
+    "MySQL",
+    "AWS (S3, EC2)"
+  ],
+  "match_rate": "90%",
+  "rating": "4/5",
+  "decision": "Accepted",
+  "reasons": [
+    "Possesses strong frontend development skills, including proficiency in Angular, which is a key requirement.",
+    "Demonstrates practical experience through internships and projects.",
+    "Shows a clear passion for development and a willingness to learn new technologies.",
+    "His projects, such as HireAI, showcase skills relevant to the role."
+  ],
+  "questions": [
+    "Describe your experience working with Angular.  Can you share specific examples of projects where you used Angular and what challenges you faced?",
+    "Explain your approach to building a user interface. How do you ensure the UI is both visually appealing and user-friendly?",
+    "Tell me about a time you had to debug a complex frontend issue.  What steps did you take to identify and resolve the problem?",
+    "How do you stay up-to-date with the latest trends and technologies in frontend development?",
+    "Describe your experience working with version control systems like Git.  How do you handle merge conflicts?",
+    "Explain your understanding of responsive design and how you would ensure a website is accessible across different devices.",
+    "In your previous internship experience, what was the most challenging frontend development task you encountered, and how did you overcome it?"
+  ]
+}

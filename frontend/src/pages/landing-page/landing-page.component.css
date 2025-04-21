@@ -1,0 +1,140 @@
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin: 50px;
+
+}
+
+.resume-upload {
+    background-color: #16213e;
+    border: 2px dashed #0f3460;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.resume-upload::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 100%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(233, 69, 96, 0.1) 10px,
+        rgba(233, 69, 96, 0.1) 20px
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.resume-upload.dragover::before {
+    opacity: 1;
+}
+
+.resume-upload:hover {
+    border-color: #e94560;
+}
+
+.upload-icon {
+    font-size: 64px;
+    color: #6a11cb;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.resume-upload:hover .upload-icon {
+    transform: scale(1.1);
+}
+
+.job-details {
+    background-color: #16213e;
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #e0e0e0;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    background-color: #0f3460;
+    border: 1px solid #6a11cb;
+    border-radius: 6px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #2575fc;
+    box-shadow: 0 0 0 3px rgba(37, 117, 252, 0.2);
+}
+
+.form-group .validation-error {
+    color: #ff4d4d;
+    font-size: 0.8em;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    display: none;
+}
+
+.section-hint {
+    text-align: center;
+    color: #6a11cb;
+    margin-top: 20px;
+    font-style: italic;
+    opacity: 0.7;
+}
+
+#uploadProgress {
+    width: 0;
+    height: 4px;
+    background-color: #e94560;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.5s ease;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.get-started-btn {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.get-started-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0,0,0,0.2);
+}

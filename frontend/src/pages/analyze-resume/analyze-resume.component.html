@@ -1,0 +1,112 @@
+<!-- <div class="main-container">
+
+
+    <div class="container">
+        <div class="loading-section">
+            <div class="loading-icon"></div>
+            <h2>Analyzing Resume...</h2>
+            <p class="loading-text">Our AI is processing the candidate's information</p>
+        </div>
+
+        <div class="resume-analysis">
+            <div class="profile-card">
+
+                <h3 class="profile-name">John Anderson</h3>
+                <p class="profile-role">ijodavo
+                </p>
+                <p class="profile-role">Senior Developer</p>
+                <div class="details">
+                    <div class="detail-item">
+                        <span>Experience</span>
+                        <span>8 years</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>Education</span>
+                        <span>Master's Degree</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>Match Rate</span>
+                        <span>92%</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="interview-buttons" (click)="redirectToAiInterview()">
+            <button class="btn btn-primary bt">Start Interview</button>
+             <button class="btn btn-secondary">Skip Interview</button> 
+        </div>
+    </div>
+</div> -->
+
+<!-- Loader -->
+<!-- <div *ngIf="!showInterviewSection" class="loading-section">
+    <div class="loading-icon"></div>
+    <h2>Analyzing Resume...</h2>
+    <p class="loading-text">Our AI is processing the candidate's information</p>
+  </div>
+  
+
+  <div *ngIf="showInterviewSection && fullData" class="interview-section">
+    <h3>AI Interview Summary</h3>
+    <p><strong>Candidate Name:</strong> {{ fullData.analysis.name }}</p>
+    <p><strong>Job Role:</strong> {{ fullData.role }}</p>
+    <p><strong>Phone No:</strong> {{ fullData.analysis.phone_no }}</p>
+    <p><strong>Summary:</strong> {{ fullData.analysis.summary }}</p>
+  </div>
+   -->
+
+<div class="main-container">
+    <div class="container">
+        <!-- Loader -->
+        <div class="loading-section">
+            <div class="loading-icon"></div>
+            <h2>Analyzing Resume...</h2>
+            <p class="loading-text">Our AI is processing the candidate's information</p>
+        </div>
+
+        <!-- Resume Analysis + Buttons -->
+        <div *ngIf="showInterviewSection && fullData">
+            <div class="resume-analysis">
+                <div class="profile-card">
+                    <h3 class="profile-name">{{ fullData.analysis.name }}</h3>
+                  
+                    <div class="detail-item">
+                
+                        <span><strong>Job Role:</strong> {{ fullData.role }}</span>
+                        
+                    </div>
+                    <div class="detail-item">
+                
+                        
+                        <span><strong>Phone No:</strong> {{ fullData.analysis.phone_no }}</span>
+                        
+                    </div>
+                    <div class="details">
+                        <div class="detail-item">
+                            <span>Experience</span>
+                            <span>{{ fullData.analysis.experience || 'N/A' }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Education</span>
+                            <span>{{ fullData.analysis.education || 'N/A' }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Match Rate</span>
+                            <span>{{ fullData.analysis.match_rate || 'N/A' }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Buttons -->
+            <div class="interview-buttons">
+                <button class="btn btn-primary bt" (click)="redirectToAiInterview()">Start Interview</button>
+                <button class="btn btn-secondary">Skip Interview</button>
+            </div>
+        </div>
+    </div>
+</div>
